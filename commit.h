@@ -54,8 +54,11 @@ enum decoration_type {
 	DECORATION_REF_REMOTE,
 	DECORATION_REF_TAG,
 	DECORATION_REF_STASH,
+	DECORATION_REF,
 	DECORATION_REF_HEAD,
+	DECORATION_REF_PSEUDO,
 	DECORATION_GRAFTED,
+	DECORATION_SYMBOL,
 };
 
 void add_name_decoration(enum decoration_type type, const char *name, struct object *obj);
@@ -370,5 +373,6 @@ int parse_buffer_signed_by_header(const char *buffer,
 				  struct strbuf *payload,
 				  struct strbuf *signature,
 				  const struct git_hash_algo *algop);
+int add_header_signature(struct strbuf *buf, struct strbuf *sig, const struct git_hash_algo *algo);
 
 #endif /* COMMIT_H */
